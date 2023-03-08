@@ -18,6 +18,7 @@ class CreateSpecialistsTable extends Migration
             $table->string('name');
             $table->string('specialization');
             $table->string('city');
+            $table->foreignId('serviceId');
             $table->string('photo')->nullable();
             $table->timestamps();
         });

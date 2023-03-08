@@ -24,6 +24,7 @@ Route::get('/specialist/edit/{specialist}', [SpecialistController::class, 'editS
 Route::post('/update/{specialist}', [SpecialistController::class, 'storeUpdate']);
 Route::get('/specialist/delete/{specialist}', [SpecialistController::class, 'deleteSpecialist']);
 
+
 // Servisai
 Route::get('/add-service', [ServiceController::class, 'create']);
 Route::post('/storeService', [ServiceController::class, 'store']);

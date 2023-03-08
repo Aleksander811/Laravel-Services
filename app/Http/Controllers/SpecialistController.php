@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Specialist;
+use App\Models\Service;
 use File;
 
 class SpecialistController extends Controller
@@ -14,7 +15,8 @@ class SpecialistController extends Controller
     }
 
     public function addSpecialist(){
-        return view('pages.add-specialist');
+        $services = Service::all();
+        return view('pages.add-specialist', compact('services')); // i specialisto forma 
     }
 
     public function store(Request $request){
@@ -29,10 +31,11 @@ class SpecialistController extends Controller
             $fileName = str_replace('public/', '', $path);          // $fileName saugosim db, str_replace praso kad pasalintu is path'o public, replace'inam i tuscia stringa ir paduodam path'a
     //   }
 
-        Specialist::create([             // ka daro sis metodas?
+        Specialist::create([             
             'name'=>request('name'),
             'specialization'=>request('specialization'),
             'city'=>request('city'),
+            'serviceId'=>request('service'),
             'photo'=>$fileName    
         ]);
         return redirect('/');
@@ -63,5 +66,9 @@ class SpecialistController extends Controller
         $specialist->delete();
 
         return redirect('/');  // po delete'inimo grazina i pradini puslapi
+    }
+
+    public function search(){
+        return view('pages.search');
     }
 }
