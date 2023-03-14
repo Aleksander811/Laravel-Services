@@ -11,11 +11,11 @@
         </tr>
         @foreach($services as $service)
            <tr>
-                   <td>{{$service->name}}</td>
-                   <td>{{$service->adress}}</td>
-                   <td>{{$service->boss}}</td>
-                   <td><a href="/service/edit/{{$service->id}}">Keisti</a></td>
-                   <td><a href="/service/delete/{{$service->id}}">Šalinti</a></td>
+                <td>{{$service->name}}</td>
+                <td>{{$service->adress}}</td>
+                <td>{{$service->boss}}</td>
+                <td><a href="/service/edit/{{$service->id}}">Keisti</a></td>
+                <td><a href="/service/delete/{{$service->id}}">Šalinti</a></td>
            </tr>
         @endforeach
     </table>

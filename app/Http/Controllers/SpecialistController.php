@@ -24,7 +24,8 @@ class SpecialistController extends Controller
             'name'=>'required|unique:specialists',
             'specialization'=>'required',
             'city'=>'required',
-            'photo'=>'mimes:jpeg,png,gif'  // reiskia, kad leis prideti failus tik nurodytu formatu
+            'photo'=>'mimes:jpeg,png,gif',  // reiskia, kad leis prideti failus tik nurodytu formatu
+            'service'=>'required'
         ]);
     //  if(request()->hasFile('photo')){                            // metodas hasFile patikrina ar turi faila
             $path = $request->file('photo')->store('public/images'); // $path (failai) issaugomi serveryje, store saugo failus ir nurodom kur saugoti
@@ -69,6 +70,11 @@ class SpecialistController extends Controller
     }
 
     public function search(){
-        return view('pages.search');
+        return view('pages.search-form');
+    }
+
+    public function searchResults(){
+        $results = Specialist::where('name','like','%'.request('search').'%')->get();
+        return view('pages.search', compact('results'));
     }
 }

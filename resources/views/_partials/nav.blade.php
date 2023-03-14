@@ -7,24 +7,25 @@
         <div class="mb-3 me-2">
             <select class="form-select" aria-label="Default select example">
               <option selected>Specializacija</option>
-              <option value="1">Važiuoklė</option>
-              <option value="2">Kėbulas</option>
-              <option value="3">Elektros dalis</option>
+              @foreach($specialists as $specialist)
+              <option value="{{$specialist->serviceId}}">{{$specialist->specialization}}</option>
+              @endforeach
             </select>
         </div>
         <div class="mb-3 me-2">
             <select class="form-select" aria-label="Default select example">
               <option selected>Servisas</option>
-              <option value="1">Naujas servisas</option>
-              <option value="2">Visi servisai</option>
+              @foreach($specialists as $specialist)
+              <option value="{{$specialist->serviceId}}">{{$specialist->serviceId}}</option>
+              @endforeach
             </select>
         </div>
         <div class="mb-3 me-2">
             <select class="form-select" aria-label="Default select example">
               <option selected>Miestas</option>
-              <option value="1">Alytus</option>
-              <option value="2">Kaunas</option>
-              <option value="2">Tauragė</option>
+              @foreach($specialists as $specialist)
+              <option value="{{$specialist->serviceId}}">{{$specialist->city}}</option>
+              @endforeach
             </select>
         </div>
         <div class="mb-3 me-2">

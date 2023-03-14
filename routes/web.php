@@ -23,7 +23,8 @@ Route::get('/specialist/{specialist}', [SpecialistController::class, 'showSpecia
 Route::get('/specialist/edit/{specialist}', [SpecialistController::class, 'editSpecialist']);
 Route::post('/update/{specialist}', [SpecialistController::class, 'storeUpdate']);
 Route::get('/specialist/delete/{specialist}', [SpecialistController::class, 'deleteSpecialist']);
-
+Route::get('/search', [SpecialistController::class,'search']);
+Route::post('/searchSpecialist', [SpecialistController::class,'searchResults']);
 
 // Servisai
 Route::get('/add-service', [ServiceController::class, 'create']);

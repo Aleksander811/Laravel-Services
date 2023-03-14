@@ -4,7 +4,7 @@
     <body>
     
         <!-- Sidebar-->
-  
+        @include('_partials/sidebar')
         <!-- Responsive navbar-->
         @include('_partials/nav')
         <!-- Page content-->
